@@ -9,7 +9,7 @@ services:
     depends_on:
       - backend
 
-  backend:
+  server:
     build: ./server
     container_name: backend
     expose:
