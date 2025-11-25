@@ -4,11 +4,11 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/api/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Сервер работает!');
 });
 
-app.post('/data', (req, res) => {
+app.post('/api/data', (req, res) => {
   const { name } = req.body;
   res.json({ message: `Привет, ${name}!` });
 });
