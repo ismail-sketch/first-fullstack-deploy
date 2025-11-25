@@ -4,7 +4,7 @@ export default function form() {
   return (
     <div className='container form-container'>
       <form>
-        Привет!
+        Привет Гена!
         <input type="text" className='input input-name'/>
         <input type="text" className='input input-cirname'/>
         <button className='btn form-btn'>Отправить</button>
