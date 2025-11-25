@@ -1,7 +1,7 @@
 
 # Сборка React
 FROM node:18 AS build
-WORKDIR /app
+WORKDIR /server
 COPY package*.json ./
 RUN npm install
 COPY . .
