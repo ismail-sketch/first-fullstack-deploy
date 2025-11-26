@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from "react";
 import axios from 'axios'
 
-// const url = "http://localhost:3000/api/data"
-const url = "https://onweber.ru/api/data"
+const url = "http://localhost:5000/api/data"
+// const url = "https://onweber.ru/api/data"
 
 
 
@@ -26,12 +26,12 @@ export default function Form() {
 
   const [response, setResponse] = useState(null);
 
-  const sendData = async () => {
+  const sendData = async (name) => {
     try {
       const res = await axios.post(url, {
-        name: "John",
+        name: name,
       });
-
+      console.log("Ответ сервера:", res.data); // правильное место!
       setResponse(res.data);
     } catch (error) {
       console.error("Ошибка запроса:", error);
@@ -44,7 +44,7 @@ export default function Form() {
   return (
     <div className='container form-container'>
       <form>
-        Привет Гена!
+  
         <input
           type="text"
           className='input input-name'
@@ -64,8 +64,7 @@ export default function Form() {
         />
         <button onClick={e => {
           e.preventDefault()
-          sendData()
-          console.log(response)
+          sendData(form.name)
           } } className='btn form-btn'>Отправить</button>
       </form>
     </div>
