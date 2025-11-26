@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from "react";
 import axios from 'axios'
 
-const url = "http://localhost:3000/api/data"
-// const url = "https://onweber.ru/api/data"
+// const url = "http://localhost:3000/api/data"
+const url = "https://onweber.ru/api/data"
 
 
 
