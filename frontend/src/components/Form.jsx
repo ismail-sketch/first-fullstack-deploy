@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from 'axios'
 
 // const url = "http://localhost:5000/api/data"
-const url = "https://onweber.ru/api/data" || "http://localhost:5000/api/data"
+const url =  "http://onweber.ru//api/data"
 
 
 
@@ -33,6 +33,7 @@ export default function Form() {
       });
       console.log("Ответ сервера:", res.data); // правильное место!
       setResponse(res.data);
+
     } catch (error) {
       console.error("Ошибка запроса:", error);
     }
@@ -43,8 +44,8 @@ export default function Form() {
 
   return (
     <div className='container form-container'>
+      <div>{response?.message}</div>
       <form>
-  
         <input
           type="text"
           className='input input-name'
