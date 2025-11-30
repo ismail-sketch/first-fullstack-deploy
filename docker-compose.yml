@@ -6,15 +6,33 @@ services:
     container_name: server
     ports:
       - "5000:5000"
+    environment:
+      - DATABASE_URL=postgres://postgres:rita777rita@db:5432/my_deploy
+    depends_on:
+      - db
 
   frontend:
     build: ./frontend
     container_name: frontend
     ports:
       - "8080:80"
-    volumes:
-      - ./site:/app
     depends_on:
       - server
+  
+
+  db:
+    image: postgres:18
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rita777rita
+      POSTGRES_DB: my_deploy
+    volumes:
+    - postgres_data:/var/lib/postgresql/data
+    ports:
+    - "5432:5432"
+
+  volumes:
+    postgres_data:
 
 
