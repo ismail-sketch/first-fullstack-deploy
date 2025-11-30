@@ -15,3 +15,7 @@ services:
     depends_on:
       - server
 
+volumes:
+  - ./site:/app
+
+
